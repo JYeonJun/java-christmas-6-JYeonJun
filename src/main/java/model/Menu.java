@@ -28,12 +28,16 @@ public enum Menu {
         this.category = category;
     }
 
+    public String getMenuName() {
+        return new String(menuName);
+    }
+
     public int getPrice() {
         return price;
     }
 
     public String getCategory() {
-        return category;
+        return new String(category);
     }
 
     public static Optional<Menu> findByName(String menuName) {
