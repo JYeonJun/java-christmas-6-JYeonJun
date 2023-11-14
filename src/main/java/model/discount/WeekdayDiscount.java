@@ -7,6 +7,7 @@ import model.Menu;
 
 public class WeekdayDiscount implements DiscountStrategy {
 
+    private final String BENEFIT_DETAIL = "평일 할인";
     private final String DESSERT_CATEGORY = "dessert";
     private final int WEEKDAY_BASIC_DISCOUNT_AMOUNT = 2_023;
 
@@ -22,6 +23,11 @@ public class WeekdayDiscount implements DiscountStrategy {
     @Override
     public int getDiscountAmount() {
         return discountAmount;
+    }
+
+    @Override
+    public String getBenefitDetail() {
+        return BENEFIT_DETAIL;
     }
 
     private void calculateWeekdayDiscount(List<Menu> menus) {

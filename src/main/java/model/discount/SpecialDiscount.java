@@ -5,6 +5,7 @@ import model.Menu;
 
 public class SpecialDiscount implements DiscountStrategy {
 
+    private final String BENEFIT_DETAIL = "특별 할인";
     private final int SPECIAL_DISCOUNT_AMOUNT = 1_000;
     private final int[] STAR_DATE = {3, 10, 17, 24, 25, 31};
 
@@ -20,6 +21,11 @@ public class SpecialDiscount implements DiscountStrategy {
     @Override
     public int getDiscountAmount() {
         return discountAmount;
+    }
+
+    @Override
+    public String getBenefitDetail() {
+        return BENEFIT_DETAIL;
     }
 
     private void calculateSpecialDiscount(int visitDate) {

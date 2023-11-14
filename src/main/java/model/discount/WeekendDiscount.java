@@ -7,11 +7,11 @@ import model.Menu;
 
 public class WeekendDiscount implements DiscountStrategy {
 
+    private final String BENEFIT_DETAIL = "주말 할인";
     private final String MAIN_MENU_CATEGORY = "main";
     private final int WEEKEND_BASIC_DISCOUNT_AMOUNT = 2_023;
 
     private int discountAmount;
-
 
     @Override
     public void applyDiscount(int totalOrderAmount, List<Menu> menus, int visitDate) {
@@ -23,6 +23,11 @@ public class WeekendDiscount implements DiscountStrategy {
     @Override
     public int getDiscountAmount() {
         return discountAmount;
+    }
+
+    @Override
+    public String getBenefitDetail() {
+        return BENEFIT_DETAIL;
     }
 
     private void calculateWeekendDiscount(List<Menu> menus) {

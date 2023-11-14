@@ -5,6 +5,7 @@ import model.Menu;
 
 public class ChristmasDdayDiscount implements DiscountStrategy {
 
+    private final String BENEFIT_DETAIL = "크리스마스 디데이 할인";
     private final int CHRISTMAS_BASIC_DISCOUNT_AMOUNT = 1_000;
     private final int CHRISTMAS_PER_DAY_DISCOUNT_AMOUNT = 100;
     private final int CHRISTMAS_EVENT_START_DATE = 1;
@@ -22,6 +23,11 @@ public class ChristmasDdayDiscount implements DiscountStrategy {
     @Override
     public int getDiscountAmount() {
         return discountAmount;
+    }
+
+    @Override
+    public String getBenefitDetail() {
+        return BENEFIT_DETAIL;
     }
 
     private boolean isDuringChristmasDiscountPeriod(int visitDate) {
