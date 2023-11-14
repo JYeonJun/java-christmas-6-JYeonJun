@@ -7,6 +7,7 @@ public interface DiscountStrategy {
 
     void applyDiscount(int totalOrderAmount, List<Menu> menus, int visitDate);
     int getDiscountAmount();
+    String getBenefitDetail();
     default int getNegativeAmount(int amount) {
         return amount * -1;
     }
