@@ -1,7 +1,7 @@
 package model;
 
 import java.util.Arrays;
-import java.util.Optional;
+import java.util.Comparator;
 
 public enum Badge {
 
@@ -18,16 +18,13 @@ public enum Badge {
     }
 
     public String getBadgeName() {
-        return badgeName;
+        return new String(badgeName);
     }
 
-    public int getMinimumPurchase() {
-        return minimumPurchase;
-    }
-
-    public static Optional<Badge> findByMinimumPurchase(int minimumPurchase) {
-        return Arrays.stream(Badge.values())
-                .filter(badge -> badge.minimumPurchase == minimumPurchase)
-                .findFirst();
+    public static Badge of(int totalBenefitAmount) {
+        return Arrays.stream(values())
+                .filter(badge -> badge.minimumPurchase <= totalBenefitAmount * -1)
+                .max(Comparator.comparingInt(badge -> badge.minimumPurchase))
+                .orElse(null);
     }
 }
