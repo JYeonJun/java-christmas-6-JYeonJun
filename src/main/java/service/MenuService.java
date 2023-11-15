@@ -12,7 +12,7 @@ import util.CommonUtils;
 
 public class MenuService {
     private final int MAX_MENU_COUNT = 20;
-    private final String DESSERT_CATEGORY = "dessert";
+    private final String DRINK_CATEGORY = "drink";
 
     public List<Menu> validateAndCreateMenuList(String orderMenu) {
         String[] menuSelections = orderMenu.split(",");
@@ -72,7 +72,7 @@ public class MenuService {
     }
 
     private boolean isDrink(Menu menu) {
-        return menu.getCategory().equals(DESSERT_CATEGORY);
+        return menu.getCategory().equals(DRINK_CATEGORY);
     }
 
     private void addMenusToList(List<Menu> menus, Menu menu, int count) {
